@@ -15,8 +15,7 @@ public class CooponeFragment extends Fragment {
 
     private FragmentSlideshowBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_coopone,container,false);
         return root;
     }
