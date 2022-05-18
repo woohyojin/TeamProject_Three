@@ -1,11 +1,15 @@
 package com.example.othercock;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.othercock.ui.menu.Detail_MenuFragment;
 
 import java.util.ArrayList;
 
@@ -27,9 +31,22 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ViewHolder viewHolder, @SuppressLint("RecyclerView") int position) {
         viewHolder.tvTitle.setText(itemList.get(position).getTitle());
         viewHolder.ivIcon.setImageResource(itemList.get(position).getIconResourceId());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*final int pos = position;*/
+                Intent intent = new Intent(v.getContext(), Detail_MenuFragment.class);
+                /*intent.putExtra("number", pos);
+                intent.putExtra("title",itemList.get(position).getItem_title());  // 이부분이 클릭시 신호를 다른 액티비티로 보내줄수 있는 부분이라고 함.*/
+                v.getContext().startActivity(intent);
+
+
+            }
+        });
     }
 
     @Override
