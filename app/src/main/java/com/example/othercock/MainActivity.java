@@ -12,6 +12,7 @@ import android.view.Menu;
 import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
+import com.example.othercock.ui.Login.SignupFragment;
 import com.example.othercock.ui.menu.MenuFragment;
 import com.example.othercock.ui.other.OrderHistoryFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +80,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void  testFragment(){
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
     public void  testFragment2(){
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void  fragmentSignUp(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new SignupFragment());
         ft.addToBackStack(null);
         ft.commit();
     }

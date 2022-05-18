@@ -6,6 +6,8 @@ public class Protocol {
 
     public static final String LOGIN = "110"; // ID찾기 Join (request)
 
+    public static final String LOGIN_FAIL = "119"; // 로그인실패
+
     public static final String IDCHECK = "120"; // ID찾기 Join (request)
 
 }

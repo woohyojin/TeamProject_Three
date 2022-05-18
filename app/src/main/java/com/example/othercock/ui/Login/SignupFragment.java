@@ -24,11 +24,11 @@ import java.util.HashMap;
 
 public final class SignupFragment extends Fragment {
 
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_signup,container,false);
-        Toolbar toolbar = (Toolbar)getView().findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
 
         ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
 
@@ -38,6 +38,7 @@ public final class SignupFragment extends Fragment {
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
         }
+
 
         Button but = (Button)getView().findViewById(R.id.button_signin);
         EditText editEmail = (EditText)getView().findViewById(R.id.et_email);
@@ -73,6 +74,7 @@ public final class SignupFragment extends Fragment {
             }
 
         }));
+
 
     //setStatusBarWhite((AppCompatActivity)getActivity());
     return root;
