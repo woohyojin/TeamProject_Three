@@ -11,22 +11,32 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 import com.example.othercock.databinding.FragmentOthermainBinding;
 
 
 public class OtherFragment extends Fragment {
-    FragmentOthermainBinding binding;
+    LinearLayout layout;
+    LinearLayout order_his;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_othermain,container,false);
-
-        LinearLayout layout = (LinearLayout) root.findViewById(R.id.linear_menu);
+        order_his = (LinearLayout) root.findViewById(R.id.ordermain_list_orderhistory);
+        order_his.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).testFragment();
+            }
+        });
+        layout = (LinearLayout) root.findViewById(R.id.linear_menu);
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("성공이냐?");
+
+                ((MainActivity)getActivity()).testFragment2();
             }
         });
 
