@@ -1,5 +1,7 @@
 package com.example.othercock.ui.Login;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.othercock.R;
+import com.example.othercock.Socket.service_Socket;
+
 import org.jetbrains.annotations.NotNull;
 
 
@@ -43,13 +47,17 @@ public final class LoginFragment extends Fragment {
 
     public final void onClick(@NotNull View view) {
 
-//        if (view.getId() == R.id.button_signup) {
-//            this.startActivity(new Intent((Context)this, SignupActivity.class));
-//        } else if (view.getId() == R.id.button_forgot_password) {
-//            this.startActivity(new Intent((Context)this, ForgotPasswordActivity.class));
-//        } else if (view.getId() == R.id.button_signin){
-//
-//        }
+        if (view.getId() == R.id.button_signup) {
+
+
+        } else if (view.getId() == R.id.button_forgot_password) {
+
+        } else if (view.getId() == R.id.button_signin){
+            Intent intent = new Intent(getContext(), service_Socket.class);
+            intent.putExtra("pw", R.id.et_username +"|"+ R.id.et_password);
+            getActivity().startService(intent);
+
+        }
 
     }
 
