@@ -31,7 +31,7 @@ public class client_Socket implements Runnable {
         try {
 
 
-            socket = new Socket("175.192.34.225", 9500);
+            socket = new Socket("127.0.0.1", 9500);
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
