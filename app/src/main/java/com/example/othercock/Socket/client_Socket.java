@@ -18,7 +18,7 @@ public class client_Socket implements Runnable {
     private Socket socket;
     private String getPW;
     private Context context;
-    public String line;
+    public String line[];
 
 
 
@@ -31,7 +31,7 @@ public class client_Socket implements Runnable {
         try {
 
 
-            socket = new Socket("175.192.34.225", 9500);
+            socket = new Socket("192.168.100.119", 9500);
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
@@ -71,8 +71,12 @@ public class client_Socket implements Runnable {
         try {
         while (true){
 
-                line = br.readLine();
+                line = br.readLine().split("\\|");
 
+
+                if(line[0].compareTo(Protocol.LOGIN)==0){
+                    Check(line);
+                }
 
                 if(line == null){
                    System.out.println("close");
@@ -85,13 +89,21 @@ public class client_Socket implements Runnable {
         }
     }
 
+    //line 확인 함수
+    public String Check(String[] check) {
+        String Result= "";
+        for(int i = 0; i<check.length; i++) {
+            Result += check[i];
+        }
+        System.out.println(Result);
+        return Result;
+    }
+
 
     public class PWThread implements Runnable{
 
         @Override
         public void run() {
-            System.out.println("실행");
-            System.out.println(getPW);
             pw.println(getPW);
             pw.flush();
         }

@@ -38,6 +38,9 @@ public final class ForgotPasswordFragment extends Fragment {
             public final void onClick(View it) {
 
 //                ForgotPasswordActivity.super.onBackPressed();
+
+
+
             }
         }));
 

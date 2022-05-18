@@ -16,6 +16,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 
+import kotlinx.coroutines.channels.Send;
+
 public class service_Socket extends Service implements Runnable{
     public static final String CHANNEL_ID = "SocketServiceChannel";
     public client_Socket client_socket;
@@ -72,7 +74,9 @@ public class service_Socket extends Service implements Runnable{
             send.start();
 
             //Server -> Service(brodcast) -> Activity(brodcast receiver)
+        if(client_socket.line != null) {
             sendMessage();
+        }
 
 //        Intent i = new Intent(this,RegisterActivity.class);
 //        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -83,9 +87,9 @@ public class service_Socket extends Service implements Runnable{
 
     private void sendMessage() {
 
-         if(client_socket.line!=null) {
+         if(client_socket.line != null) {
              Intent intent = new Intent("naminsik");
-             intent.putExtra("message", client_socket.line);
+             intent.putExtra("pw", client_socket.line);
              LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
          }
     }
@@ -133,8 +137,10 @@ public class service_Socket extends Service implements Runnable{
         public void run() {
             String getPW = intent.getStringExtra("pw");
 
+
             if(getPW != null) {
                 client_socket.setPW(getPW);
+                System.out.println(getPW);
             }
         }
     }
