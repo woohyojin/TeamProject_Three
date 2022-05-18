@@ -18,26 +18,18 @@ import com.example.othercock.R;
 import java.util.HashMap;
 
 public final class SignupFragment extends Fragment {
-    private HashMap _$_findViewCache;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_signup,container,false);
-        Toolbar toolbar = (Toolbar)getView().findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
 
         ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
 
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
         }
-
-        toolbar.setNavigationOnClickListener((View.OnClickListener)(new View.OnClickListener() {
-            public final void onClick(View it) {
-                //  SignupActivity.super.onBackPressed();
-            }
-
-        }));
 
     //setStatusBarWhite((AppCompatActivity)getActivity());
     return root;
