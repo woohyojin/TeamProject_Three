@@ -49,7 +49,6 @@ public final class LoginFragment extends Fragment {
         });
         setStatusBarTransparent((AppCompatActivity)getActivity());
 
-
         return root;
     }
 

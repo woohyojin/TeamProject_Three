@@ -11,6 +11,7 @@ import android.view.Menu;
 
 import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
+import com.example.othercock.adapter.OnorderAdapter;
 import com.example.othercock.ui.menu.MenuFragment;
 import com.example.othercock.ui.other.OrderHistoryFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -25,6 +26,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.othercock.databinding.ActivityMainBinding;
 
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 

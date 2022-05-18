@@ -31,7 +31,10 @@ public class client_Socket implements Runnable {
         try {
 
 
-            socket = new Socket("192.168.100.119", 9500);
+
+            socket = new Socket("192.168.100.119", 9500);// ip주소 수정하세요
+
+
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
