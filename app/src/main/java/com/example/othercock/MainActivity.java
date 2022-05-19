@@ -12,6 +12,7 @@ import android.view.Menu;
 import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
+import com.example.othercock.ui.menu.Detail_MenuFragment;
 import com.example.othercock.ui.menu.MenuFragment;
 import com.example.othercock.ui.other.OrderHistoryFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+    public String temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,13 +80,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void  testFragment(){
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
+    public  void Ditailmenu(String title){
+        temp = title;
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new Detail_MenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
     public void  testFragment2(){
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
         ft.addToBackStack(null);
         ft.commit();
@@ -124,5 +132,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
         super.onPause();
+    }
+    public String getTemp(){
+        return temp;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.othercock.ui.menu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,12 +39,17 @@ public class MenuFragment extends Fragment {
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        ItemAdapter adapter = new ItemAdapter(list);
+        ItemAdapter adapter = new ItemAdapter(list, root.getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(linearLayoutManager);
         return root;
+
+
+
     }
+
+
 
     @Override
     public void onDestroyView() {

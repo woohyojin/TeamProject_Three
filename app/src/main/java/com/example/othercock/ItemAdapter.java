@@ -1,7 +1,9 @@
 package com.example.othercock;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,10 +18,11 @@ import java.util.ArrayList;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     private ArrayList<Item> itemList;
-
-    public ItemAdapter(ArrayList<Item> itemList) {
+    private Context context;
+    public ItemAdapter(ArrayList<Item> itemList, Context context) {
         super();
         this.itemList = itemList;
+        this.context = context;
     }
 
     public ItemAdapter() {
@@ -37,12 +40,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                /*final int pos = position;*/
-                Intent intent = new Intent(v.getContext(), Detail_MenuFragment.class);
-                /*intent.putExtra("number", pos);
-                intent.putExtra("title",itemList.get(position).getItem_title());  // 이부분이 클릭시 신호를 다른 액티비티로 보내줄수 있는 부분이라고 함.*/
-                v.getContext().startActivity(intent);
+            public void onClick(View view) {
+
+                ((MainActivity)context).Ditailmenu(viewHolder.tvTitle.getText().toString() );
+
+
 
 
             }
