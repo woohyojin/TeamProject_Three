@@ -40,16 +40,17 @@ public final class SignupFragment extends Fragment {
         }
 
 
-        Button but = (Button)getView().findViewById(R.id.button_signin);
-        EditText editEmail = (EditText)getView().findViewById(R.id.et_email);
-        EditText editUser = (EditText)getView().findViewById(R.id.et_username);
-        EditText editPassword = (EditText)getView().findViewById(R.id.et_password);
-        EditText editPhone = (EditText)getView().findViewById(R.id.et_phone);
-        EditText editconfirmPassword = (EditText)getView().findViewById(R.id.et_confirm_password);
+
+        EditText editEmail = (EditText)root.findViewById(R.id.et_email);
+        EditText editUser = (EditText)root.findViewById(R.id.et_username);
+        EditText editPassword = (EditText)root.findViewById(R.id.et_password);
+        EditText editPhone = (EditText)root.findViewById(R.id.et_phone);
+        EditText editconfirmPassword = (EditText)root.findViewById(R.id.et_confirm_password);
+        Button but = (Button)root.findViewById(R.id.button_signin);
 
 
 
-                but.setOnClickListener(new View.OnClickListener() {
+        but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -67,14 +68,6 @@ public final class SignupFragment extends Fragment {
 
             }
         });
-
-        toolbar.setNavigationOnClickListener((View.OnClickListener)(new View.OnClickListener() {
-            public final void onClick(View it) {
-                //  SignupActivity.super.onBackPressed();
-            }
-
-        }));
-
 
     //setStatusBarWhite((AppCompatActivity)getActivity());
     return root;
