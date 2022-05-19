@@ -1,5 +1,7 @@
 package com.example.othercock.ui.other;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 
 import java.util.ArrayList;
@@ -15,10 +18,11 @@ import java.util.ArrayList;
 public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> {
 
     private ArrayList<PopuMenu> popuMenuList;
-
-    public OtherAdapter(ArrayList<PopuMenu> popuMenuList){
+    private Context context;
+    public OtherAdapter(ArrayList<PopuMenu> popuMenuList, Context context){
         super();
         this.popuMenuList = popuMenuList;
+        this.context = context;
     }
 
     public OtherAdapter(){
@@ -33,9 +37,16 @@ public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder,@SuppressLint("RecyclerView") int position) {
         holder.tvTitle.setText(popuMenuList.get(position).getTitle());
         holder.ivIcon.setImageResource(popuMenuList.get(position).getIconResourceId());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)context).OrderDitailmenu(holder.tvTitle.getText().toString() );
+            }
+        });
     }
 
     @Override

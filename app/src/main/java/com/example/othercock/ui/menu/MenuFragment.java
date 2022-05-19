@@ -38,7 +38,7 @@ public class MenuFragment extends Fragment {
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        ItemAdapter adapter = new ItemAdapter(list);
+        ItemAdapter adapter = new ItemAdapter(list, root.getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(linearLayoutManager);

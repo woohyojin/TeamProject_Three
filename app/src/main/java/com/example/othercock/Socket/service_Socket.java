@@ -72,9 +72,9 @@
 //            send.start();
 //
 //            //Server -> Service(brodcast) -> Activity(brodcast receiver)
-//        if(client_socket.line != null) {
-//
-//        }
+////        if(client_socket.line != null) {
+////
+////        }
 //
 ////        Intent i = new Intent(this,RegisterActivity.class);
 ////        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

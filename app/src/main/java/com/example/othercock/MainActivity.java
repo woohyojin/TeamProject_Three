@@ -12,6 +12,9 @@ import android.view.Menu;
 //import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
+import com.example.othercock.ui.menu.Detail_MenuFragment;
+import com.example.othercock.ui.menu.Detail_Menu_OrderFragment;
+import com.example.othercock.ui.menu.FavoriteMenuFragment;
 import com.example.othercock.ui.menu.MenuFragment;
 import com.example.othercock.ui.other.OrderHistoryFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-//        Intent serviceIntent = new Intent(this, service_Socket.class);
+//        Intent serviceIntent = new Intent(this,  service_Socket.class);
 //        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
 //        ContextCompat.startForegroundService(this, serviceIntent);
 
@@ -79,14 +81,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void  testFragment(){
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
     public void  testFragment2(){
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void  FavoriteMenu(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new FavoriteMenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void Ditailmenu(String title){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new Detail_MenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void OrderDitailmenu(String title){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
