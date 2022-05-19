@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
-import com.example.othercock.Socket.service_Socket;
+//import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
 import com.example.othercock.ui.menu.MenuFragment;
@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        Intent serviceIntent = new Intent(this, service_Socket.class);
-        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
-        ContextCompat.startForegroundService(this, serviceIntent);
+//        Intent serviceIntent = new Intent(this, service_Socket.class);
+//        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
+//        ContextCompat.startForegroundService(this, serviceIntent);
 
 
 

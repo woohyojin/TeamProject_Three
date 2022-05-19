@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.othercock.R;
 import com.example.othercock.Socket.Protocol;
-import com.example.othercock.Socket.service_Socket;
+//import com.example.othercock.Socket.service_Socket;
 
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
@@ -41,13 +41,13 @@ public final class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 System.out.println("버튼_signin");
-                Intent intent = new Intent(getContext(), service_Socket.class);
-                intent.putExtra("pw", Protocol.LOGIN +"|"+id.getText().toString() +"|" +password.getText().toString());
-                getActivity().startService(intent);
-                getActivity().findViewById(R.id.nav_view).setEnabled(false);
+//                Intent intent = new Intent(getContext(), service_Socket.class);
+//                intent.putExtra("pw", Protocol.LOGIN +"|"+id.getText().toString() +"|" +password.getText().toString());
+//                getActivity().startService(intent);
+//                getActivity().findViewById(R.id.nav_view).setEnabled(false);
             }
         });
-        setStatusBarTransparent((AppCompatActivity)getActivity());
+//        setStatusBarTransparent((AppCompatActivity)getActivity());
 
         return root;
     }
