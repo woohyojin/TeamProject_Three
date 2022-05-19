@@ -1,6 +1,11 @@
 package com.example.othercock.Socket;
 
 import android.content.Context;
+import android.content.Intent;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import com.example.othercock.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,11 +32,9 @@ public class client_Socket implements Runnable {
 
 
 
-    client_Socket( ){
+    client_Socket(){
         try {
-
             socket = new Socket("192.168.22.43", 9500);// ip주소 수정하세요
-
 
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -72,18 +75,25 @@ public class client_Socket implements Runnable {
         try {
         while (true){
 
-                line = br.readLine().split("\\|");
-
-                if(line[0].compareTo(Protocol.LOGIN)==0){
-                    Check(line);
-                }
-
-                if(line == null){
-                   System.out.println("close");
-                }
-
+            line = br.readLine().split("\\|");
+            System.out.println(line[0]+"정상작동해");
+            if(line[0].compareTo(Protocol.LOGIN)==0){
+                Check(line);
+            } else if(line[0].compareTo(Protocol.ENTERLOGIN_NO)==0){
+                System.out.println("로그인실패");
+            } else if(line[0].compareTo(Protocol.ENTERLOGIN_OK)==0){
+                System.out.println("로그인성공");
+                Intent intent = new Intent("naminsik");
+                intent.putExtra("pw", Protocol.ENTERLOGIN_OK);
+                LocalBroadcastManager.getInstance(MainActivity.ApplicationContext().getApplicationContext()).sendBroadcast(intent);
 
             }
+            if(line == null){
+                System.out.println("close");
+            }
+
+
+        }
         }catch (IOException e) {
             e.printStackTrace();
         }

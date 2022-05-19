@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,11 @@ public final class LoginFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View root = inflater.inflate(R.layout.fragment_login,container,false);
+        if(((MainActivity)getActivity()).loginCheck() == false){
+            Toast.makeText(getContext(), "로그인 해주세요", Toast.LENGTH_SHORT).show();
+        } else {
+            ((MainActivity)getActivity()).fragmentMain();
+        }
         signin = (Button)root.findViewById(R.id.button_signin);
         signup = (Button)root.findViewById(R.id.button_signup);
 
@@ -55,10 +61,10 @@ public final class LoginFragment extends Fragment {
         @Override
         public void onClick(View view) {
             if(view.getId()==R.id.button_signin){
-                System.out.println("버튼_signin");
                 Intent intent = new Intent(getContext(), service_Socket.class);
                 intent.putExtra("pw", Protocol.LOGIN +"|"+id.getText().toString() +"|" +password.getText().toString());
                 getActivity().startService(intent);
+
             } else if(view.getId()==R.id.button_signup){
                 ((MainActivity)getActivity()).fragmentSignUp();
             }

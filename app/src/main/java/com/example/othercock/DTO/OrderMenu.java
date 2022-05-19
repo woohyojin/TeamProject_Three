@@ -1,6 +1,6 @@
 package com.example.othercock.DTO;
 
-public class orderMenu {
+public class OrderMenu {
 	private String name;
 	private String index;
 	private int price;

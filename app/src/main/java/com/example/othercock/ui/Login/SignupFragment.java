@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 import com.example.othercock.Socket.Protocol;
 import com.example.othercock.Socket.service_Socket;
@@ -59,6 +60,7 @@ public final class SignupFragment extends Fragment {
                     intent.putExtra("pw", Protocol.REGISTER +"|"+ editEmail.getText().toString() + "|" + editUser.getText().toString() +
                             "|" +editPhone.getText().toString()+"|"+ editPassword.getText().toString());
                     getActivity().startService(intent);
+                    ((MainActivity)getActivity()).fragmentSignIn();
                 } else{
                     System.out.println("비밀번호가 일치 하지 않습니다.");
                 }
