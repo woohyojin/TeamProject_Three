@@ -169,27 +169,27 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public User settingUser(User user) {
-        this.user = user;
-        return user;
+        if(user!=null)
+            this.user = user;
+        return this.user;
     }
 
     public ArrayList<Manager> settingMarket(ArrayList<Manager> marketlist) {
-        this.marketList = marketlist;
-        return marketlist;
+        if(marketlist!=null)
+            this.marketList = marketlist;
+        return this.marketList;
     }
 
     public ArrayList<OrderMenu> settingMenu(ArrayList<OrderMenu> menulist) {
-        this.orderMenuList = menulist;
-        System.out.println("여기진입");
-        for (OrderMenu menu : menulist) {
-            System.out.println(menu);
-        }
-        return menulist;
+        if(menulist!=null)
+            this.orderMenuList = menulist;
+        return this.orderMenuList;
     }
 
     public ArrayList<PopulList> settingPopul(ArrayList<PopulList> populList) {
-        this.populMenuList = populList;
-        return populList;
+        if(populList!=null)
+            this.populMenuList = populList;
+        return this.populMenuList;
     }
 
     @Override
