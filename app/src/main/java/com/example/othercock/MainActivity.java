@@ -15,9 +15,11 @@ import com.example.othercock.DTO.OrderMenu;
 import com.example.othercock.DTO.PopulList;
 import com.example.othercock.DTO.User;
 import com.example.othercock.Socket.Protocol;
+import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
 import com.example.othercock.ui.Login.SignupFragment;
+import com.example.othercock.ui.coopone.CooponeFragment;
 import com.example.othercock.ui.home.HomeFragment;
 //import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
@@ -27,6 +29,8 @@ import com.example.othercock.ui.menu.Detail_Menu_OrderFragment;
 import com.example.othercock.ui.menu.FavoriteMenuFragment;
 import com.example.othercock.ui.menu.MenuFragment;
 import com.example.othercock.ui.other.OrderHistoryFragment;
+import com.example.othercock.ui.other.OtherFragment;
+import com.example.othercock.ui.store.StoreInfoFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -106,25 +110,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public static Context ApplicationContext(){
+        return context;
+    }
 
-    public void  FavoriteMenu(){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new FavoriteMenuFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-    public void Ditailmenu(String title){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new Detail_MenuFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-    public void OrderDitailmenu(String title){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -244,7 +233,18 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
-
+    public void fragmentOrder() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new OtherFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void fragmentStore() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new StoreInfoFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
     public void fragmentSignUp() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new SignupFragment());
@@ -265,6 +265,31 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
+    public void fragmentCoopne() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new CooponeFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void  FavoriteMenu(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new FavoriteMenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void Ditailmenu(String title){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new Detail_MenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void OrderDitailmenu(String title){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
 
     // ===============> 데이터체크 <===============
     public boolean loginCheck() {
