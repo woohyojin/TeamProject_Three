@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.othercock.DTO.User;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
-import com.example.othercock.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
@@ -36,10 +35,10 @@ public class HomeFragment extends Fragment {
         cooponeBtn = root.findViewById(R.id.cooponeBtn);
         storeBtn = root.findViewById(R.id.storeBtn);
 
-        orderBtn.setOnClickListener(onClick);
-        starBtn.setOnClickListener(onClick);
-        cooponeBtn.setOnClickListener(onClick);
-        storeBtn.setOnClickListener(onClick);
+        orderBtn.setOnClickListener(ocl);
+        starBtn.setOnClickListener(ocl);
+        cooponeBtn.setOnClickListener(ocl);
+        storeBtn.setOnClickListener(ocl);
 
         return root;
     }
@@ -58,21 +57,6 @@ public class HomeFragment extends Fragment {
                 ((MainActivity)getActivity()).FavoriteMenu();
             } else if(view.getId()==R.id.cooponeBtn){
                 ((MainActivity)getActivity()).fragmentCoopne();
-            } else if(view.getId()==R.id.storeBtn){
-                ((MainActivity)getActivity()).fragmentStore();
-            }
-        }
-    }
-    class OCL implements View.OnClickListener{
-
-        @Override
-        public void onClick(View view) {
-            if(view.getId()==R.id.orderBtn){
-                ((MainActivity)getActivity()).fragmentOrder();
-            } else if(view.getId()==R.id.starBtn){
-                ((MainActivity)getActivity()).fragmentStar();
-            } else if(view.getId()==R.id.cooponeBtn){
-                ((MainActivity)getActivity()).fragmentCoopone();
             } else if(view.getId()==R.id.storeBtn){
                 ((MainActivity)getActivity()).fragmentStore();
             }

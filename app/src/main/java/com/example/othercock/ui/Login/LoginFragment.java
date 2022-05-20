@@ -62,19 +62,6 @@ public final class LoginFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            if(view.getId()==R.id.button_signin){
-                Intent intent = new Intent(getContext(), service_Socket.class);
-                intent.putExtra("pw", Protocol.LOGIN +"|"+id.getText().toString() +"|" +password.getText().toString());
-                getActivity().startService(intent);
-            } else if(view.getId()==R.id.button_signup){
-                ((MainActivity)getActivity()).fragmentSignUp();
-            }
-    }
-
-    class OnClickListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View view) {
             if (view.getId() == R.id.button_signin) {
                 Intent intent = new Intent(getContext(), service_Socket.class);
                 intent.putExtra("pw", Protocol.LOGIN + "|" + id.getText().toString() + "|" + password.getText().toString());

@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     public String temp;
     private static Context context;
     service_Socket socket;
-    private static Context context;
     ImageView logout;
     View nav_headView;
 
