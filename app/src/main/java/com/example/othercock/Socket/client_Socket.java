@@ -1,3 +1,4 @@
+
 package com.example.othercock.Socket;
 
 import android.content.Context;
@@ -112,3 +113,4 @@ public class client_Socket implements Runnable {
 
 
 }
+
