@@ -28,15 +28,19 @@ public class OtherFragment extends Fragment {
         order_his.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).testFragment();
+                ((MainActivity)getActivity()).fragmentOrderHistory();
             }
         });
         layout = (LinearLayout) root.findViewById(R.id.linear_menu);
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< Updated upstream
 
                 ((MainActivity)getActivity()).testFragment2();
+=======
+                ((MainActivity)getActivity()).fragmentMenuFragment();
+>>>>>>> Stashed changes
             }
         });
 

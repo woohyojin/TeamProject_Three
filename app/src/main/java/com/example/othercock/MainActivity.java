@@ -9,12 +9,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+<<<<<<< Updated upstream
 import com.example.othercock.Socket.service_Socket;
+=======
+import com.example.othercock.DTO.Manager;
+import com.example.othercock.DTO.OrderMenu;
+import com.example.othercock.DTO.PopulList;
+import com.example.othercock.DTO.User;
+import com.example.othercock.Socket.Protocol;
+import com.example.othercock.Socket.service_Socket;
+import com.example.othercock.ui.Login.LoginFragment;
+import com.example.othercock.adapter.OnorderAdapter;
+import com.example.othercock.ui.Login.SignupFragment;
+import com.example.othercock.ui.coopone.CooponeFragment;
+import com.example.othercock.ui.home.HomeFragment;
+//import com.example.othercock.Socket.service_Socket;
+>>>>>>> Stashed changes
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
 import com.example.othercock.ui.menu.Detail_MenuFragment;
 import com.example.othercock.ui.menu.MenuFragment;
 import com.example.othercock.ui.other.OrderHistoryFragment;
+import com.example.othercock.ui.other.OtherFragment;
+import com.example.othercock.ui.store.StoreInfoFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -37,7 +54,27 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+<<<<<<< Updated upstream
     public String temp;
+=======
+    private static Context context;
+    service_Socket socket;
+    ImageView logout;
+    View nav_headView;
+
+    User user = new User();
+    PopulList popul = new PopulList();
+    OrderMenu menu = new OrderMenu();
+    Manager manager = new Manager();
+
+
+    private ArrayList<OrderMenu> orderMenuList = new ArrayList<OrderMenu>();
+    private ArrayList<PopulList> populMenuList = new ArrayList<PopulList>();
+    private ArrayList<Manager> marketList = new ArrayList<Manager>();
+
+
+    boolean loginCheck = false;
+>>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +92,22 @@ public class MainActivity extends AppCompatActivity {
 //
 
 
+
+        logout.setOnClickListener(onClick);
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_rank, R.id.nav_othermain, R.id.nav_coopone, R.id.nav_menu, R.id.nav_store)
                 .setOpenableLayout(drawer)
                 .build();
+<<<<<<< Updated upstream
 
 
         Fragment fragment = getFragmentManager().findFragmentById(R.id.nav_Login);
 
 
 
+=======
+>>>>>>> Stashed changes
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -133,7 +176,96 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
         super.onPause();
     }
+<<<<<<< Updated upstream
     public String getTemp(){
         return temp;
+=======
+    public static Context ApplicationContext(){
+        return context;
+    }
+
+    class OnClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == R.id.side_logout) {
+                loginCheck = false;
+                Intent intent = new Intent(context, service_Socket.class);
+                intent.putExtra("pw", Protocol.LOGOUT + "|" + "logout");
+                context.startService(intent);
+            }
+        }
+    }
+
+    // ===================> 플래그먼트 컨트롤 <===================
+    public void fragmentOrder() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new OtherFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void fragmentStar() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new FavoriteMenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void fragmentCoopone() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new CooponeFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void fragmentStore() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new StoreInfoFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    public void fragmentOrderHistory() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    public void fragmentMenuFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    public void fragmentSignUp() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new SignupFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    public void fragmentSignIn() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new LoginFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    public void fragmentMain() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        ft.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    // ===============> 데이터체크 <===============
+    public boolean loginCheck() {
+        return loginCheck;
+    }
+
+    public void loginCheckChange() {
+        loginCheck = true;
+        fragmentMain();
+>>>>>>> Stashed changes
     }
 }
