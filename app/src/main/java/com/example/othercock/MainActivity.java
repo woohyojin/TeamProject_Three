@@ -40,7 +40,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.othercock.databinding.ActivityMainBinding;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -58,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
     OrderMenu menu = new OrderMenu();
     Manager manager = new Manager();
 
+
     private ArrayList<OrderMenu> orderMenuList = new ArrayList<OrderMenu>();
     private ArrayList<PopulList> populMenuList = new ArrayList<PopulList>();
     private ArrayList<Manager> marketList = new ArrayList<Manager>();
-
 
 
     boolean loginCheck = false;
@@ -99,11 +102,9 @@ public class MainActivity extends AppCompatActivity {
         ContextCompat.startForegroundService(this, serviceIntent);
 
 
-
-
-
     }
-    public static Context ApplicationContext(){
+
+    public static Context ApplicationContext() {
         return context.getApplicationContext();
     }
 
@@ -130,31 +131,81 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        int check = 0;
+
         @Override
         public void onReceive(Context context, Intent intent) {
+
             String message = intent.getStringExtra("pw");
             //CallYourMethod(message); 실행시킬 메소드를 전달 받은 데이터를 담아 호출하려면 이렇게 한다.
-            System.out.println(message);
-            if(message==Protocol.ENTERLOGIN_OK) {
+            String line[] = message.split("\\|");
+            System.out.println(line[0]);
+            if (line[0].compareTo(Protocol.ENTERLOGIN_OK) == 0) {
+                check++;
+                Type usertype = new TypeToken<User>() {
+                }.getType();
+                Type menutype = new TypeToken<ArrayList<OrderMenu>>() {
+                }.getType();
+                Type popultype = new TypeToken<ArrayList<PopulList>>() {
+                }.getType();
+                Type marketype = new TypeToken<ArrayList<Manager>>() {
+                }.getType();
+                System.out.println("라인안"+line[8]);
+                User user = new Gson().fromJson(line[2], usertype);
+                ArrayList<OrderMenu> menulist = new Gson().fromJson(line[4], menutype);
+                ArrayList<PopulList> populist = new Gson().fromJson(line[6], popultype);
+                ArrayList<Manager> marketlist = new Gson().fromJson(line[8], marketype);
+                System.out.println(menulist);
+                settingUser(user);
+                settingMenu(menulist);
+                settingPopul(populist);
+                settingMarket(marketlist);
+
+
                 loginCheckChange();
 
             }
         }
     };
+
+    public User settingUser(User user) {
+        this.user = user;
+        return user;
+    }
+
+    public ArrayList<Manager> settingMarket(ArrayList<Manager> marketlist) {
+        this.marketList = marketlist;
+        return marketlist;
+    }
+
+    public ArrayList<OrderMenu> settingMenu(ArrayList<OrderMenu> menulist) {
+        this.orderMenuList = menulist;
+        System.out.println("여기진입");
+        for (OrderMenu menu : menulist) {
+            System.out.println(menu);
+        }
+        return menulist;
+    }
+
+    public ArrayList<PopulList> settingPopul(ArrayList<PopulList> populList) {
+        this.populMenuList = populList;
+        return populList;
+    }
+
     @Override
     protected void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
         super.onPause();
     }
 
-    class OnClickListener implements View.OnClickListener{
+    class OnClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
-            if(view.getId()==R.id.side_logout){
-                loginCheck=false;
+            if (view.getId() == R.id.side_logout) {
+                loginCheck = false;
                 Intent intent = new Intent(context, service_Socket.class);
-                intent.putExtra("pw", Protocol.LOGOUT +"|"+"logout");
+                intent.putExtra("pw", Protocol.LOGOUT + "|" + "logout");
                 context.startService(intent);
             }
         }
@@ -162,31 +213,35 @@ public class MainActivity extends AppCompatActivity {
 
     // ===================> 플래그먼트 컨트롤 <===================
 
-    public void  testFragment(){
+    public void testFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
-    public void  testFragment2(){
+
+    public void testFragment2() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
-    public void  fragmentSignUp(){
+
+    public void fragmentSignUp() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new SignupFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
-    public void  fragmentSignIn(){
+
+    public void fragmentSignIn() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new LoginFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
-    public void  fragmentMain(){
+
+    public void fragmentMain() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
         ft.addToBackStack(null);
@@ -194,10 +249,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ===============> 데이터체크 <===============
-    public boolean loginCheck(){
+    public boolean loginCheck() {
         return loginCheck;
     }
-    public void loginCheckChange(){
+
+    public void loginCheckChange() {
         loginCheck = true;
         fragmentMain();
     }

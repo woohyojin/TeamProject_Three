@@ -10,7 +10,11 @@ public class User {
 	private String birth;
 	private int stamp;
 	private int Tier;
-	
+
+	public User() {
+		super();
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", phone=" + phone + ", nick="

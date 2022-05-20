@@ -43,10 +43,16 @@ public class OrderMenu {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+
 	@Override
 	public String toString() {
-		return "[" + name + "-" + index + "-" + price + "-" + kcal + "-"
-				+ allregy + "-" + number;
+		return "OrderMenu{" +
+				"name='" + name + '\'' +
+				", index='" + index + '\'' +
+				", price=" + price +
+				", kcal=" + kcal +
+				", allregy='" + allregy + '\'' +
+				", number=" + number +
+				'}';
 	}
-	
 }

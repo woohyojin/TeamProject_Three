@@ -23,7 +23,7 @@ public class client_Socket implements Runnable {
     private Socket socket;
     private String getPW;
     private Context context;
-    public String line[];
+    public String line;
 
 
 
@@ -74,25 +74,14 @@ public class client_Socket implements Runnable {
     public void run() {
         try {
         while (true){
+            line = br.readLine();
+            Intent intent = new Intent("naminsik");
+            intent.putExtra("pw", line);
+            LocalBroadcastManager.getInstance(MainActivity.ApplicationContext().getApplicationContext()).sendBroadcast(intent);
 
-            line = br.readLine().split("\\|");
-            System.out.println(line[0]+"정상작동해");
-            if(line[0].compareTo(Protocol.LOGIN)==0){
-                Check(line);
-            } else if(line[0].compareTo(Protocol.ENTERLOGIN_NO)==0){
-                System.out.println("로그인실패");
-            } else if(line[0].compareTo(Protocol.ENTERLOGIN_OK)==0){
-                System.out.println("로그인성공");
-                Intent intent = new Intent("naminsik");
-                intent.putExtra("pw", Protocol.ENTERLOGIN_OK);
-                LocalBroadcastManager.getInstance(MainActivity.ApplicationContext().getApplicationContext()).sendBroadcast(intent);
-
-            }
             if(line == null){
                 System.out.println("close");
             }
-
-
         }
         }catch (IOException e) {
             e.printStackTrace();
