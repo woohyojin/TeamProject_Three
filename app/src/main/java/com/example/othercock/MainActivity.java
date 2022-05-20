@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     public String temp;
+
     private static Context context;
     service_Socket socket;
     ImageView logout;
@@ -206,6 +207,8 @@ public class MainActivity extends AppCompatActivity {
         return this.populMenuList;
     }
 
+
+
     @Override
     protected void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
@@ -217,6 +220,8 @@ public class MainActivity extends AppCompatActivity {
     public static Context ApplicationContext(){
         return context;
     }
+
+
 
     class OnClickListener implements View.OnClickListener {
 
@@ -241,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testFragment2() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
         ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
         ft.addToBackStack(null);
         ft.commit();
@@ -320,6 +325,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
     public void Ditailmenu(String title){
+        temp = title;
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new Detail_MenuFragment());
         ft.addToBackStack(null);

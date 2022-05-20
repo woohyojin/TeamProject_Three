@@ -130,7 +130,11 @@ public class service_Socket extends Service implements Runnable{
 
 
             if(getPW != null) {
-                client_socket.setPW(getPW);
+                try{
+                    client_socket.setPW(getPW);
+                } catch (Exception e ){
+                    System.out.println("이거오류");
+                }
                 System.out.println(getPW);
             }
         }
