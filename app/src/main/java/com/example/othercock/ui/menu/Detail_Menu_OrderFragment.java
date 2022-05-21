@@ -65,7 +65,7 @@ public class Detail_Menu_OrderFragment extends Fragment {
                 System.out.println("이건카트");
             } else if(view.getId()==R.id.detail_orderBtn){
                 System.out.println("이건오더");
-           }
+            }
         }
     }
 }
