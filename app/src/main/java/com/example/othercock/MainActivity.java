@@ -116,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-//        Intent serviceIntent = new Intent(this,  service_Socket.class);
-//        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
-//        ContextCompat.startForegroundService(this, serviceIntent);
+        Intent serviceIntent = new Intent(this,  service_Socket.class);
+        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
+        ContextCompat.startForegroundService(this, serviceIntent);
 
 
     }
