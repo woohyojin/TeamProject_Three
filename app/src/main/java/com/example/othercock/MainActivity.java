@@ -42,7 +42,6 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.activity.result.ActivityResultRegistry;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.navigation.NavController;
@@ -385,5 +384,8 @@ public class MainActivity extends AppCompatActivity {
     public void loginCheckChange() {
         loginCheck = true;
         fragmentMain();
+    }
+    public static Context ApplicationContext(){
+        return context;
     }
 }
