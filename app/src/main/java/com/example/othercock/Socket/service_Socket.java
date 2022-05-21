@@ -127,7 +127,7 @@ public class service_Socket extends Service implements Runnable{
         @Override
         public void run() {
             String getPW = intent.getStringExtra("pw");
-
+            System.out.println("여기는 get Pw 되냐?"+getPW);
 
             if(getPW != null) {
                 client_socket.setPW(getPW);
