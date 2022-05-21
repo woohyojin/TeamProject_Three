@@ -1,10 +1,10 @@
-package com.example.othercock;
+package com.example.othercock.ui.other;
 
-public class Item {
+public class PopuMenu {
     private String title;
     private int iconResId;
 
-    public Item(String title, int iconResId) {
+    public PopuMenu(String title, int iconResId) {
         super();
         this.title = title;
         this.iconResId = iconResId;
@@ -25,5 +25,4 @@ public class Item {
     public void setIconResource(int iconResId) {
         this.iconResId = iconResId;
     }
-
 }

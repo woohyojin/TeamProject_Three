@@ -1,5 +1,7 @@
-package com.example.othercock;
+package com.example.othercock.ui.menu;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -7,18 +9,23 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.othercock.items.Item;
+import com.example.othercock.MainActivity;
+import com.example.othercock.R;
+
 import java.util.ArrayList;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
+public class Detail_Menu_OrderAdapter extends RecyclerView.Adapter<Detail_Menu_OrderAdapter.ViewHolder> {
 
     private ArrayList<Item> itemList;
-
-    public ItemAdapter(ArrayList<Item> itemList) {
+    private Context context;
+    public Detail_Menu_OrderAdapter(ArrayList<Item> itemList, Context context) {
         super();
         this.itemList = itemList;
+        this.context = context;
     }
 
-    public ItemAdapter() {
+    public Detail_Menu_OrderAdapter() {
     }
 
     @Override
@@ -27,9 +34,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ViewHolder viewHolder, @SuppressLint("RecyclerView") int position) {
         viewHolder.tvTitle.setText(itemList.get(position).getTitle());
         viewHolder.ivIcon.setImageResource(itemList.get(position).getIconResourceId());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)context).OrderDitailmenu(viewHolder.tvTitle.getText().toString() );
+            }
+        });
     }
 
     @Override
