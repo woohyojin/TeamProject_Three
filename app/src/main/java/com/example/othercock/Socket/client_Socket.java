@@ -1,6 +1,12 @@
+
 package com.example.othercock.Socket;
 
 import android.content.Context;
+import android.content.Intent;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import com.example.othercock.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,18 +24,16 @@ public class client_Socket implements Runnable {
     private Socket socket;
     private String getPW;
     private Context context;
-    public String line[];
+    public String line;
 
 
     PWThread pw1;
-
 
     client_Socket() {
         try {
 
 
             socket = new Socket("192.168.22.18", 9500);// ip주소 수정하세요
-
 
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -68,22 +72,17 @@ public class client_Socket implements Runnable {
     @Override
     public void run() {
         try {
-            while (true) {
+        while (true){
+            line = br.readLine();
+            Intent intent = new Intent("naminsik");
+            intent.putExtra("pw", line);
+            LocalBroadcastManager.getInstance(MainActivity.ApplicationContext().getApplicationContext()).sendBroadcast(intent);
 
-                line = br.readLine().split("\\|");
-
-
-                if (line[0].compareTo(Protocol.LOGIN) == 0) {
-                    Check(line);
-                }
-
-                if (line == null) {
-                    System.out.println("close");
-                }
-
-
+            if(line == null){
+                System.out.println("close");
             }
-        } catch (IOException e) {
+        }
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -112,3 +111,4 @@ public class client_Socket implements Runnable {
 
 
 }
+

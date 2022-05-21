@@ -16,20 +16,11 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 
-
 public class service_Socket extends Service implements Runnable{
     public static final String CHANNEL_ID = "SocketServiceChannel";
     public client_Socket client_socket;
     Intent intent;
-    private Context context;
-
-
-
-
-
-     public service_Socket() {
-
-     }
+    Context context;
 
     @Override
     public void onCreate(){
@@ -54,6 +45,7 @@ public class service_Socket extends Service implements Runnable{
     @Override public int onStartCommand(Intent intent, int flags, int startId) {
          this.intent =  intent;
 
+
        String input = intent.getStringExtra("inputExtra"); //인텐트 값
         // 안드로이드 O버전 이상에서는 알림창을 띄워야 포그라운드 사용 가능
         createNotificationChannel();
@@ -73,11 +65,11 @@ public class service_Socket extends Service implements Runnable{
             send.start();
 
             //Server -> Service(brodcast) -> Activity(brodcast receiver)
-        if(client_socket.line != null) {
-            sendMessage();
-        }
+//        if(client_socket.line != null) {
+//            sendMessage();
+//        }
 
-//        Intent i = new Intent(this,RegisterActivity.class);
+//        Intent i = new Intent(this,MainActivity.class);
 //        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        startActivity(i);
 
@@ -135,7 +127,7 @@ public class service_Socket extends Service implements Runnable{
         @Override
         public void run() {
             String getPW = intent.getStringExtra("pw");
-
+            System.out.println("여기는 get Pw 되냐?"+getPW);
 
             if(getPW != null) {
                 client_socket.setPW(getPW);
