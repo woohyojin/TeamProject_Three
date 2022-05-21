@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.othercock.Item;
+import com.example.othercock.items.Item;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 

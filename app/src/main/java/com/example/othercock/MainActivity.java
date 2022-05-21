@@ -15,6 +15,7 @@ import com.example.othercock.DTO.OrderMenu;
 import com.example.othercock.DTO.PopulList;
 import com.example.othercock.DTO.User;
 import com.example.othercock.Socket.Protocol;
+import com.example.othercock.Socket.service_Socket;
 import com.example.othercock.ui.Login.LoginFragment;
 import com.example.othercock.adapter.OnorderAdapter;
 import com.example.othercock.ui.Login.SignupFragment;
@@ -60,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView logout;
     View nav_headView;
 
+
     User user = new User();
+    OrderMenu thisMenu = new OrderMenu();
     PopulList popul = new PopulList();
     OrderMenu menu = new OrderMenu();
     Manager manager = new Manager();
@@ -120,6 +123,14 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
     public void OrderDitailmenu(String title){
+        thisMenu.setName(title);
+        for(OrderMenu menu : orderMenuList){
+            if(menu.equals(thisMenu)){
+                thisMenu = menu;
+                break;
+            }
+        }
+        System.out.println(thisMenu);//이게젤중요
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
         ft.addToBackStack(null);
@@ -209,6 +220,9 @@ public class MainActivity extends AppCompatActivity {
             this.populMenuList = populList;
         return this.populMenuList;
     }
+    public OrderMenu getThisMenu(){
+        return this.thisMenu;
+    }
 
     @Override
     protected void onPause() {
@@ -227,6 +241,9 @@ public class MainActivity extends AppCompatActivity {
                 context.startService(intent);
             }
         }
+    }
+    public static Context ApplicationContext(){
+        return context;
     }
 
     // ===================> 플래그먼트 컨트롤 <===================

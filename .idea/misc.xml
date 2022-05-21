@@ -7,7 +7,7 @@
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/app_bar_main.xml" value="0.19791666666666666" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/content_main.xml" value="0.19791666666666666" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_detail_menu.xml" value="0.34010416666666665" />
-        <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_detail_menu_order.xml" value="0.34010416666666665" />
+        <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_detail_menu_order.xml" value="0.1" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_favorite_menu.xml" value="0.20462962962962963" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_menu.xml" value="0.34010416666666665" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_menu_list.xml" value="0.34010416666666665" />
@@ -56,7 +56,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

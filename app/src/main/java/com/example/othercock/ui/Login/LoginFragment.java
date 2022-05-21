@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 import com.example.othercock.Socket.Protocol;
+import com.example.othercock.Socket.service_Socket;
 //import com.example.othercock.Socket.service_Socket;
 
 import org.jetbrains.annotations.NotNull;
@@ -65,19 +66,6 @@ public final class LoginFragment extends Fragment {
                 Intent intent = new Intent(getContext(), service_Socket.class);
                 intent.putExtra("pw", Protocol.LOGIN +"|"+id.getText().toString() +"|" +password.getText().toString());
                 getActivity().startService(intent);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("버튼_signin");
-//                Intent intent = new Intent(getContext(), service_Socket.class);
-//                intent.putExtra("pw", Protocol.LOGIN +"|"+id.getText().toString() +"|" +password.getText().toString());
-//                getActivity().startService(intent);
-//                getActivity().findViewById(R.id.nav_view).setEnabled(false);
-            }
-        });
-//        setStatusBarTransparent((AppCompatActivity)getActivity());
-
             } else if(view.getId()==R.id.button_signup){
                 ((MainActivity)getActivity()).fragmentSignUp();
             }

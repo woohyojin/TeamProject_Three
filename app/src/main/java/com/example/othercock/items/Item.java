@@ -1,4 +1,4 @@
-package com.example.othercock;
+package com.example.othercock.items;
 
 public class Item {
     private String title;

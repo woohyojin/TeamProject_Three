@@ -21,8 +21,6 @@ public class Detail_MenuFragment extends Fragment {
 
         /*((MainActivity)getActivity()).퍼블릭설정된어레이리스트*/
 
-        System.out.println("저기");
-
         return root;
     }
 
