@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 import com.example.othercock.adapter.Barcode;
 import com.example.othercock.adapter.UserInfoDto;
@@ -80,12 +81,7 @@ public class StampFrag extends Fragment {
                         startActivity(intent);
                         break;
                     case R.id.couponChangBtn:
-//                        intent = new Intent(getContext(), CooponeFragment.class);
-//                        startActivity(intent);
-                        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-                        ft.replace(R.id.nav_host_fragment_content_main, new CooponeFragment());
-                        ft.addToBackStack(null);
-                        ft.commit();
+                        ((MainActivity)getActivity()).fragmentCooponeBox();
                         break;
                 }
             }

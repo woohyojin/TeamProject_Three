@@ -33,7 +33,7 @@ public class client_Socket implements Runnable {
         try {
 
 
-            socket = new Socket("192.168.22.18", 9500);// ip주소 수정하세요
+            socket = new Socket("192.168.22.43", 9500);// ip주소 수정하세요
 
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));

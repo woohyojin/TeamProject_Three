@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
     public static Context context;
     public ArrayList<UserInfoDto> list;
     public String line;
-    private static Context context;
     ImageView logout;
     View nav_headView;
 
@@ -121,53 +121,6 @@ public class MainActivity extends AppCompatActivity {
 //        ft.commit();
 //    }
 
-    public void testFragment() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-
-    public void testFragment2() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
-//        Intent serviceIntent = new Intent(this,  service_Socket.class);
-//        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
-//        ContextCompat.startForegroundService(this, serviceIntent);
-
-
-    }
-    public static Context ApplicationContext(){
-        return context;
-    }
-
-    public void  FavoriteMenu(){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new FavoriteMenuFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-    public void Ditailmenu(String title){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new Detail_MenuFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-    public void OrderDitailmenu(String title){
-        // thisMenu.setName(title);
-        // for(OrderMenu menu : orderMenuList){
-        //     if(menu.equals(thisMenu)){
-        //         thisMenu = menu;
-        //         break;
-        //     }
-        // }
-        // System.out.println(thisMenu);//이게젤중요
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -191,6 +144,9 @@ public class MainActivity extends AppCompatActivity {
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         int check = 0;
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
             String message = intent.getStringExtra("pw");
             //CallYourMethod(message); 실행시킬 메소드를 전달 받은 데이터를 담아 호출하려면 이렇게 한다.
             String line[] = message.split("\\|");
@@ -218,12 +174,17 @@ public class MainActivity extends AppCompatActivity {
 
                 loginCheckChange();
 
-            } else if(line[0].compareTo(Protocol.LOGOUT)==0){
-                user=null;
+            } else if (line[0].compareTo(Protocol.LOGOUT) == 0) {
+                user = null;
                 loginCheck = false;
                 fragmentLogin();
             }
         }
+    };
+
+
+
+
 
     public User settingUser(User user) {
         if(user!=null)
@@ -366,6 +327,13 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
+    public void fragmentCooponeBox(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new CooponeFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
 
 
     // ===============> 데이터체크 <===============
