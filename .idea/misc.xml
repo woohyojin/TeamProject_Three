@@ -7,15 +7,17 @@
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/app_bar_main.xml" value="0.19791666666666666" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/content_main.xml" value="0.19791666666666666" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_detail_menu.xml" value="0.34010416666666665" />
-        <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_detail_menu_order.xml" value="0.34010416666666665" />
+        <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_detail_menu_order.xml" value="0.1" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_favorite_menu.xml" value="0.20462962962962963" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_menu.xml" value="0.34010416666666665" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_menu_list.xml" value="0.34010416666666665" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/fragment_othermain.xml" value="0.33" />
         <entry key="..\:/JH/AR&amp;VR/project/OrderCock/app/src/main/res/layout/nav_header_main.xml" value="0.19791666666666666" />
+
         <entry key="..\:/Project/Android/OrderCock/app/src/main/res/layout/activity_forgot_password.xml" value="0.2966485507246377" />
         <entry key="..\:/Project/Android/OrderCock/app/src/main/res/layout/activity_login.xml" value="0.2966485507246377" />
         <entry key="..\:/Project/Android/OrderCock/app/src/main/res/layout/activity_signup.xml" value="0.2966485507246377" />
+
         <entry key="..\:/Users/Administrator/Documents/GitHub/workSpace/OrderCock/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.219" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/workSpace/OrderCock/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/workSpace/OrderCock/app/src/main/res/layout/app_bar_main.xml" value="0.20052083333333334" />
@@ -31,6 +33,7 @@
         <entry key="..\:/Users/Administrator/Documents/GitHub/workSpace/OrderCock/app/src/main/res/layout/nav_header_main.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/workSpace/OrderCock/app/src/main/res/menu/activity_main_drawer.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/workSpace/OrderCock/app/src/main/res/menu/main.xml" value="0.3619791666666667" />
+
         <entry key="..\:/Users/Administrator/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_coopone.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_detail_menu.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_home.xml" value="0.1" />
@@ -39,10 +42,31 @@
         <entry key="..\:/Users/Administrator/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_menu_list.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/OrderCock/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/Documents/GitHub/OrderCock/app/src/main/res/menu/main.xml" value="0.25" />
+
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/activity_barcode.xml" value="0.15" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/activity_coupon.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/activity_stamp.xml" value="0.24974358974358973" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/content_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/couponfragment.xml" value="0.1" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/couponfragment2.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_coopone.xml" value="0.24974358974358973" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_menu_list.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_order_history.xml" value="0.25" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_order_history_list.xml" value="0.25" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_othermain.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/fragment_stemp.xml" value="0.24974358974358973" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/nav_header_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/shaved_ice_coupon.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jnlee/Documents/GitHub/OrderCock/app/src/main/res/layout/stampfragment.xml" value="0.25364583333333335" />
+
+
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/app_bar_main.xml" value="0.3385416666666667" />
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/content_main.xml" value="0.3385416666666667" />
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/fragment_coopone.xml" value="0.3385416666666667" />
+        <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/fragment_detail_menu.xml" value="0.178125" />
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/fragment_forgot_password.xml" value="0.3385416666666667" />
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/fragment_home.xml" value="0.3385416666666667" />
         <entry key="..\:/orderCock/OrderCock/app/src/main/res/layout/fragment_login.xml" value="0.3385416666666667" />
@@ -64,7 +88,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.othercock.DTO.OrderMenu;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> {
 
     private ArrayList<PopuMenu> popuMenuList;
+
     private Context context;
     public OtherAdapter(ArrayList<PopuMenu> popuMenuList, Context context){
         super();
@@ -38,6 +40,7 @@ public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder,@SuppressLint("RecyclerView") int position) {
+
         holder.tvTitle.setText(popuMenuList.get(position).getTitle());
         holder.ivIcon.setImageResource(popuMenuList.get(position).getIconResourceId());
 

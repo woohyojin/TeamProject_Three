@@ -1,12 +1,24 @@
 package com.example.othercock.DTO;
 
+import java.util.Objects;
+
 public class OrderMenu {
+	private int Resource;
 	private String name;
 	private String index;
 	private int price;
 	private int kcal;
 	private String allregy;
 	private int number;
+
+	public int getResource() {
+		return Resource;
+	}
+
+	public void setResource(int resource) {
+		Resource = resource;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -42,6 +54,19 @@ public class OrderMenu {
 	}
 	public void setNumber(int number) {
 		this.number = number;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		OrderMenu orderMenu = (OrderMenu) o;
+		return Objects.equals(name, orderMenu.name);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
 	}
 
 	@Override

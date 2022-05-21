@@ -69,10 +69,6 @@ public class service_Socket extends Service implements Runnable{
             sendMessage();
         }*/
 
-//        Intent i = new Intent(this,MainActivity.class);
-//        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(i);
-
         return START_NOT_STICKY;
     }
 
@@ -127,7 +123,7 @@ public class service_Socket extends Service implements Runnable{
         @Override
         public void run() {
             String getPW = intent.getStringExtra("pw");
-
+            System.out.println("여기는 get Pw 되냐?"+getPW);
 
             if(getPW != null) {
                 try{

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.othercock.Item;
+import com.example.othercock.items.Item;
 import com.example.othercock.R;
 
 import java.util.ArrayList;
