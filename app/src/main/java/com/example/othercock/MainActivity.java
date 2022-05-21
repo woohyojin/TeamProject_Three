@@ -41,6 +41,7 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.activity.result.ActivityResultRegistry;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.navigation.NavController;
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static Context context;
     service_Socket socket;
-    public static Context context;
     public ArrayList<UserInfoDto> list;
     public String line;
     ImageView logout;
@@ -113,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_rank, R.id.nav_othermain, R.id.nav_coopone, R.id.nav_menu, R.id.nav_store)
                 .setOpenableLayout(drawer)
                 .build();
-
-
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.nav_Login);
 
         logout.setOnClickListener(onClick);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -236,9 +233,7 @@ public class MainActivity extends AppCompatActivity {
     public String getTemp(){
         return temp;
     }
-    public static Context ApplicationContext(){
-        return context;
-    }
+
 
 
 
@@ -358,6 +353,12 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
     public void OrderDitailmenu(String title){
+        for(int i =0; i<orderMenuList.size();i++){
+            if(orderMenuList.get(i).getName().compareTo(title)==0){
+                thisMenu = orderMenuList.get(i);
+                break;
+            }
+        }
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
         ft.addToBackStack(null);

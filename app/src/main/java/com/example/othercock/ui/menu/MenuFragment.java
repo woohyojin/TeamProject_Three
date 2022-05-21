@@ -16,8 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.othercock.DTO.OrderMenu;
 import com.example.othercock.DTO.User;
-import com.example.othercock.Item;
-import com.example.othercock.ItemAdapter;
+
 import com.example.othercock.ImageResource;
 import com.example.othercock.MainActivity;
 import com.example.othercock.items.Item;

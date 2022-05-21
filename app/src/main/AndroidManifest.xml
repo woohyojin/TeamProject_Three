@@ -14,12 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OtherCock">
         <activity
+            android:name=".ui.Test"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.OtherCock.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,7 +36,6 @@
         <activity
             android:name=".adapter.Barcode"
             android:exported="true" />
-
     </application>
 
 </manifest>

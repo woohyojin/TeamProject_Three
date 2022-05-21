@@ -1,5 +1,6 @@
 package com.example.othercock.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.othercock.DTO.User;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
+import com.example.othercock.ui.Test;
 
 public class HomeFragment extends Fragment {
 
@@ -64,6 +66,7 @@ public class HomeFragment extends Fragment {
                 ((MainActivity)getActivity()).fragmentOrder();
             } else if(view.getId()==R.id.starBtn){
                 ((MainActivity)getActivity()).FavoriteMenu();
+
             } else if(view.getId()==R.id.cooponeBtn){
                 ((MainActivity)getActivity()).fragmentCoopne();
             } else if(view.getId()==R.id.storeBtn){

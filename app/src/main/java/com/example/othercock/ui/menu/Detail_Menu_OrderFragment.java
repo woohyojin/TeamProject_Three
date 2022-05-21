@@ -29,20 +29,20 @@ public class Detail_Menu_OrderFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        menu = ((MainActivity)getActivity()).getThisMenu();
         View root = inflater.inflate(R.layout.fragment_detail_menu_order,container,false); // 상세메뉴 켜기. (detail_menu.xml)실행
+        menu = new OrderMenu();
+        menu = ((MainActivity)getActivity()).getThisMenu();
         //setContentView(R.layout.fragment_detail_menu); // activity_lock_screen.xml 액티비티를 실행함.
         /*((MainActivity)getActivity()).퍼블릭설정된어레이리스트*/
 
         //아이디가필요해 TextView ㅇㅇ
-
         cart = (Button) root.findViewById(R.id.detail_cartBtn);
         order = (Button) root.findViewById(R.id.detail_orderBtn);
         cart.setOnClickListener(click);
         order.setOnClickListener(click);
 
         img = (ImageView) root.findViewById(R.id.detail_order_img);
-
+        img.setImageResource(menu.getResource());
         name = (TextView) root.findViewById(R.id.detail_order_name);
         name.setText(menu.getName());
         kcal = (TextView) root.findViewById(R.id.detail_order_nutrition_info_detail);

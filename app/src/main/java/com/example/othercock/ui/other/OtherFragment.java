@@ -37,10 +37,14 @@ public class OtherFragment extends Fragment {
     LinearLayoutManager linearLayoutManager2;
 
     User user;
+    boolean check= false;
     ArrayList<PopulList> populLists;
     ArrayList<OrderMenu> menuList;
-    ArrayList<OrderMenu> newMenu= new ArrayList<>();;
+    ArrayList<OrderMenu> newMenu= new ArrayList<>();
     ArrayList<OrderMenu> popilMenu= new ArrayList<>();
+
+    ArrayList<PopuMenu> list1 = new ArrayList<>();
+    ArrayList<PopuMenu> list2 = new ArrayList<>();
 
     @Nullable
     @Override
@@ -81,37 +85,33 @@ public class OtherFragment extends Fragment {
         linearLayoutManager1 = new GridLayoutManager(root.getContext(),1,GridLayoutManager.HORIZONTAL,false);
         linearLayoutManager2 = new GridLayoutManager(root.getContext(),1,GridLayoutManager.HORIZONTAL,false);
 
-        ArrayList<PopuMenu> list = new ArrayList<PopuMenu>();
-        for (int i = 0; i <= popilMenu.size()-1; i++) {
-            //list.add(new Item("설빙 메뉴 " + i, R.drawable.ic_launcher_foreground));
-
-            list.add(new PopuMenu(popilMenu.get(i).getName(), getImage(popilMenu.get(i).getNumber())));
+        for (int i = 0; i < popilMenu.size(); i++) {
+            if(check == false)
+                list1.add(new PopuMenu(popilMenu.get(i).getName(), popilMenu.get(i).getResource()));
         }
 
         recyclerView1.setLayoutManager(new LinearLayoutManager(root.getContext()));
-        OtherAdapter adapter = new OtherAdapter(list, root.getContext());
+        OtherAdapter adapter = new OtherAdapter(list1, root.getContext());
         recyclerView1.setAdapter(adapter);
         recyclerView1.setItemAnimator(new DefaultItemAnimator());
         recyclerView1.setLayoutManager(linearLayoutManager1);
 
-        list = new ArrayList<>();
-
-        for (int i = 0; i <= newMenu.size()-1; i++) {
-            //list.add(new Item("설빙 메뉴 " + i, R.drawable.ic_launcher_foreground));
-
-            list.add(new PopuMenu(newMenu.get(i).getName(), getImage(newMenu.get(i).getNumber())));
+        for (int i = 0; i < newMenu.size(); i++) {
+            if(check == false)
+                list2.add(new PopuMenu(newMenu.get(i).getName(), newMenu.get(i).getResource()));
         }
 
         recyclerView2.setLayoutManager(new LinearLayoutManager(root.getContext()));
-        adapter = new OtherAdapter(list, root.getContext());
+        adapter = new OtherAdapter(list2, root.getContext());
         recyclerView2.setAdapter(adapter);
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setLayoutManager(linearLayoutManager2);
 
-
+        check = true;
         return root;
     }
     private void getPopulList(){
+
         for(int i=0;i<populLists.size();i++){
             if(populLists.get(i).getPopul()==1){
                 for(int j=0;j<menuList.size();j++){
@@ -122,21 +122,19 @@ public class OtherFragment extends Fragment {
                 }
             }
         }
+        System.out.println("이거실행됨" + popilMenu);
     }
     private void getNewMenu(){
+
         for(int i=0;i<populLists.size();i++){
             if(populLists.get(i).getNewmenu()==1){
                 for(int j=0;j<menuList.size();j++){
-                    if(menuList.get(j).getNumber()==populLists.get(i).getNumber()){
+                    if(menuList.get(j).getNumber()==populLists.get(i).getNumber()) {
                         newMenu.add(menuList.get(i));
                     }
                 }
             }
         }
-    }
-    public int getImage(int number){
-        int section = number/1000;
-        int tail    = number%1000;
-        return  ImageResource.IMAGE_RESOURCE[section-1][tail-1];
+        System.out.println("이거실행됨" + newMenu);
     }
 }
