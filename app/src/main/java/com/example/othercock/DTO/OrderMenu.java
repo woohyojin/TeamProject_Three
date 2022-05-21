@@ -1,12 +1,22 @@
 package com.example.othercock.DTO;
 
 public class OrderMenu {
+	private int Resource;
 	private String name;
 	private String index;
 	private int price;
 	private int kcal;
 	private String allregy;
 	private int number;
+
+	public int getResource() {
+		return Resource;
+	}
+
+	public void setResource(int resource) {
+		Resource = resource;
+	}
+
 	public String getName() {
 		return name;
 	}

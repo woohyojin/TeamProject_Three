@@ -1,8 +1,7 @@
-package com.example.othercock;
+package com.example.othercock.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,7 +9,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.othercock.ui.menu.Detail_MenuFragment;
+import com.example.othercock.MainActivity;
+import com.example.othercock.R;
+import com.example.othercock.items.Item;
 
 import java.util.ArrayList;
 

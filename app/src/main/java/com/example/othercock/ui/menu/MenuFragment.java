@@ -1,6 +1,5 @@
 package com.example.othercock.ui.menu;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.othercock.Item;
-import com.example.othercock.ItemAdapter;
+import com.example.othercock.items.Item;
+import com.example.othercock.adapter.ItemAdapter;
 import com.example.othercock.R;
 
 import java.util.ArrayList;

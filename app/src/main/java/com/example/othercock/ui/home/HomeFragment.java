@@ -24,6 +24,9 @@ public class HomeFragment extends Fragment {
     LinearLayout storeBtn;
     LinearLayout cooponeBtn;
 
+    TextView txName;
+    TextView txTier;
+
     OCL ocl = new OCL();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,10 +34,18 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home,container,false);
         user = ((MainActivity)getActivity()).settingUser(null);
 
+        txName = root.findViewById(R.id.textUserName);
+        txTier = root.findViewById(R.id.UserTier);
+
         orderBtn = root.findViewById(R.id.orderBtn);
         starBtn = root.findViewById(R.id.starBtn);
         storeBtn = root.findViewById(R.id.storeBtn);
         cooponeBtn = root.findViewById(R.id.cooponeBtn);
+        if(user != null ){
+            txName.setText(user.getName());
+        }
+
+
 
         orderBtn.setOnClickListener(ocl);
         starBtn.setOnClickListener(ocl);

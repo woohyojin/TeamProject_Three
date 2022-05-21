@@ -157,20 +157,23 @@ public class MainActivity extends AppCompatActivity {
                 }.getType();
                 Type marketype = new TypeToken<ArrayList<Manager>>() {
                 }.getType();
-                System.out.println("라인안"+line[8]);
+
                 User user = new Gson().fromJson(line[2], usertype);
                 ArrayList<OrderMenu> menulist = new Gson().fromJson(line[4], menutype);
                 ArrayList<PopulList> populist = new Gson().fromJson(line[6], popultype);
                 ArrayList<Manager> marketlist = new Gson().fromJson(line[8], marketype);
-                System.out.println(menulist);
+
                 settingUser(user);
                 settingMenu(menulist);
                 settingPopul(populist);
                 settingMarket(marketlist);
 
-
                 loginCheckChange();
 
+            } else if(line[0].compareTo(Protocol.LOGOUT)==0){
+                user=null;
+                loginCheck = false;
+                fragmentLogin();
             }
         }
     };
@@ -188,9 +191,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ArrayList<OrderMenu> settingMenu(ArrayList<OrderMenu> menulist) {
-        if(menulist!=null)
+        if(menulist!=null) {
             this.orderMenuList = menulist;
+            for(int i=0; i<orderMenuList.size();i++){
+                orderMenuList.get(i).setResource(imageResource(orderMenuList.get(i).getNumber()));
+                orderMenuList.get(i).getResource();
+            }
+
+        }
         return this.orderMenuList;
+    }
+    public int imageResource(int number){
+        int head = number / 1000;
+        int tail = number % 1000;
+        return ImageResource.IMAGE_RESOURCE[head-1][tail-1];
     }
 
     public ArrayList<PopulList> settingPopul(ArrayList<PopulList> populList) {
@@ -212,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
             if (view.getId() == R.id.side_logout) {
                 loginCheck = false;
                 Intent intent = new Intent(context, service_Socket.class);
-                intent.putExtra("pw", Protocol.LOGOUT + "|" + "logout");
+                intent.putExtra("pw", Protocol.LOGOUT + "|" + user.getId());
                 context.startService(intent);
             }
         }
@@ -221,52 +235,52 @@ public class MainActivity extends AppCompatActivity {
     // ===================> 플래그먼트 컨트롤 <===================
 
     public void testFragment() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 주문내역으로 이동
         ft.replace(R.id.nav_host_fragment_content_main, new OrderHistoryFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
 
     public void testFragment2() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 메뉴플래그먼트로이동
         ft.replace(R.id.nav_host_fragment_content_main, new MenuFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
     public void fragmentOrder() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 오더로 이동
         ft.replace(R.id.nav_host_fragment_content_main, new OtherFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
     public void fragmentStore() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();  //
         ft.replace(R.id.nav_host_fragment_content_main, new StoreInfoFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
     public void fragmentSignUp() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new SignupFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
 
     public void fragmentSignIn() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new LoginFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
 
     public void fragmentMain() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new HomeFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
     public void fragmentCoopne() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 이거 전역으로빼면 오류납니다
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new CooponeFragment());
         ft.addToBackStack(null);
         ft.commit();
@@ -286,6 +300,12 @@ public class MainActivity extends AppCompatActivity {
     public void OrderDitailmenu(String title){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.nav_host_fragment_content_main, new Detail_Menu_OrderFragment());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+    public void fragmentLogin(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_host_fragment_content_main, new LoginFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
