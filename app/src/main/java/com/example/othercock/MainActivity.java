@@ -1,5 +1,6 @@
 package com.example.othercock;
 
+import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static Context context;
     service_Socket socket;
-    public static Context context;
     public ArrayList<UserInfoDto> list;
     public String line;
     ImageView logout;
@@ -257,9 +257,6 @@ public class MainActivity extends AppCompatActivity {
                 context.startService(intent);
             }
         }
-    }
-    public static Context ApplicationContext(){
-        return context;
     }
 
     // ===================> 플래그먼트 컨트롤 <===================
