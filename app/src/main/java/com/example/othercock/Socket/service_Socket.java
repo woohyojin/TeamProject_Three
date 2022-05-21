@@ -16,7 +16,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.example.othercock.MainActivity;
 import com.example.othercock.R;
 
-import kotlinx.coroutines.channels.Send;
 
 public class service_Socket extends Service implements Runnable{
     public static final String CHANNEL_ID = "SocketServiceChannel";

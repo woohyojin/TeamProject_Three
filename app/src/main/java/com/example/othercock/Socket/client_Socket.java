@@ -21,26 +21,22 @@ public class client_Socket implements Runnable {
     public String line[];
 
 
-
-
     PWThread pw1;
 
 
-
-    client_Socket( ){
+    client_Socket() {
         try {
 
 
-
-            socket = new Socket("192.168.100.119", 9500);// ip주소 수정하세요
+            socket = new Socket("192.168.22.18", 9500);// ip주소 수정하세요
 
 
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-            if(socket.isConnected()){
+            if (socket.isConnected()) {
                 System.out.println("연결 되었습니다");
-            }else if(socket.isClosed()){
+            } else if (socket.isClosed()) {
                 System.out.println("연결 X");
             }
 
@@ -59,12 +55,12 @@ public class client_Socket implements Runnable {
     }
 
 
-    public void setPW(String info){
+    public void setPW(String info) {
         this.getPW = info;
 
         pw1 = new PWThread();
         Thread t2 = new Thread(pw1);
-        System.out.println("이름"+ t2.getState());
+        System.out.println("이름" + t2.getState());
         t2.start();
     }
 
@@ -72,30 +68,30 @@ public class client_Socket implements Runnable {
     @Override
     public void run() {
         try {
-        while (true){
+            while (true) {
 
                 line = br.readLine().split("\\|");
 
 
-                if(line[0].compareTo(Protocol.LOGIN)==0){
+                if (line[0].compareTo(Protocol.LOGIN) == 0) {
                     Check(line);
                 }
 
-                if(line == null){
-                   System.out.println("close");
+                if (line == null) {
+                    System.out.println("close");
                 }
 
 
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     //line 확인 함수
     public String Check(String[] check) {
-        String Result= "";
-        for(int i = 0; i<check.length; i++) {
+        String Result = "";
+        for (int i = 0; i < check.length; i++) {
             Result += check[i];
         }
         System.out.println(Result);
@@ -103,7 +99,7 @@ public class client_Socket implements Runnable {
     }
 
 
-    public class PWThread implements Runnable{
+    public class PWThread implements Runnable {
 
         @Override
         public void run() {

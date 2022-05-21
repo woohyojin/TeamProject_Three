@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/stampCardBtn"
+            android:id="@+id/stampCardBText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -23,7 +23,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/showCardBtn"
+            android:id="@+id/showCardText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
